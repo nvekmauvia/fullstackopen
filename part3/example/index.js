@@ -9,12 +9,12 @@ app.use(express.static('dist'))
 let notes = [
     {
         id: 1,
-        content: "HTML is easy",
+        content: "Oniichan has big kinniku",
         important: true
     },
     {
         id: 2,
-        content: "Browser can eexecute only JavaScript",
+        content: "Sasuganiisama",
         important: false
     },
     {
@@ -78,7 +78,7 @@ app.post('/api/notes', (request, response) => {
 })
 
 
-const PORT = process.env.PORT || 3001
-app.listen(PORT, () => {
+const PORT = process.env.PORT || 3000
+app.listen(PORT, '0.0.0.0', function () {
     console.log(`Server running on port ${PORT}`)
 })

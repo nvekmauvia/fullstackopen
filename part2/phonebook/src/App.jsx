@@ -78,9 +78,12 @@ const App = () => {
     setFilter(event.target.value)
   }
 
-  const filteredPersons = persons.filter(person =>
-    person.name.toLowerCase().includes(filter.toLowerCase())
-  )
+  let filteredPersons = []
+  if (persons !== null) {
+    filteredPersons = persons.filter(person =>
+      person.name.toLowerCase().includes(filter.toLowerCase())
+    )
+  }
 
   const handleNameChange = (event) => {
     setNewName(event.target.value)
