@@ -37,9 +37,22 @@ const App = () => {
         peopleService
           .update(existingPerson.id, newPerson)
           .then(responseData => {
+            setMessage(`Updated ${newName}`)
+            setMessageSuccess(true)
+            setTimeout(() => {
+              setMessage(null)
+            }, 5000)
             setPeople(people.map(currPerson => currPerson.id === existingPerson.id ? newPerson : currPerson))
             setNewName('')
             setNewNumber('')
+          })
+          .catch(error => {
+            console.log(error.response.data.error)
+            setMessage(error.response.data.error)
+            setMessageSuccess(false)
+            setTimeout(() => {
+              setMessage(null)
+            }, 5000);
           })
       }
     }
@@ -55,6 +68,14 @@ const App = () => {
           setPeople(people.concat(responseData))
           setNewName('')
           setNewNumber('')
+        })
+        .catch(error => {
+          console.log(error.response.data.error)
+          setMessage(error.response.data.error)
+          setMessageSuccess(false)
+          setTimeout(() => {
+            setMessage(null)
+          }, 5000);
         })
     }
   }
