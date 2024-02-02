@@ -1,7 +1,7 @@
-const Persons = ({ filteredPersons, deletePerson }) => {
+const People = ({ filteredPeople, deletePerson }) => {
   return (
     <div>
-      {filteredPersons.map(person =>
+      {filteredPeople.map(person =>
         <Person key={person.id} person={person} deletePerson={deletePerson} />
       )}
     </div>
@@ -16,4 +16,4 @@ const Person = ({ person, deletePerson }) => {
   )
 }
 
-export default Persons
+export default People
