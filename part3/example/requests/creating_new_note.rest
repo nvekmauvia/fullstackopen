@@ -14,3 +14,13 @@ Content-Type: application/json
 {
     "important": true
 }
+
+###
+POST http://localhost:3000/api/notes
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjY1YzQ2OGZmZTRjMDlhZmUxNTNiMzc1YyIsImlhdCI6MTcwNzM3NDcxNH0.Lybfi9C8sNr9Y4DO3OGZ3B0y3hCdfQKvBJBtLlglhPs
+
+{
+    "content": "peeping poppin",
+    "important": true
+}

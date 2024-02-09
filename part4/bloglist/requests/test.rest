@@ -7,3 +7,39 @@ Content-Type: application/json
     "url": "test",
     "likes": 2
 }
+
+### New user
+POST http://localhost:3003/api/users
+Content-Type: application/json
+
+{
+    "username": "nvekmss",
+    "name": "Kevin Chen",
+    "password": "secrett"
+}
+
+### Login
+
+POST http://localhost:3003/api/login
+Content-Type: application/json
+
+{
+    "username": "nvekms",
+    "password": "secrett"
+}
+
+###
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im52ZWttc3MiLCJpZCI6IjY1YzYwYjRiZjdjMTNiMjg0YzU0NTM2MCIsImlhdCI6MTcwNzQ3Nzg0MiwiZXhwIjoxNzA3NDgxNDQyfQ.GdoXTuYs5hHFN9GgscyqUBE348EPx83L-65YSwFqrXk
+
+{
+   "title": "Meeee",
+    "author": "1234",
+    "url": "test",
+    "likes": 2
+}
+
+###
+DELETE http://localhost:3003/api/blogs/65c5daec7be0d55f3768d6ba
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im52ZWttcyIsImlkIjoiNjVjNWQ2YTk3ZjYzZjg0YzFlMzIzMTYyIiwiaWF0IjoxNzA3NDc3OTA2LCJleHAiOjE3MDc0ODE1MDZ9._YNprUY5XgDD5BjbB6i5oyIXH8WFOwspXmIm2gpb26k
