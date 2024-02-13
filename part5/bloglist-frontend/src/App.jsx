@@ -59,21 +59,49 @@ const App = () => {
     }
   }
 
-  const addBlog = (blogObject) => {
+  const addBlog = async (blogObject) => {
     try {
       blogFormRef.current.toggleVisibility()
-      blogService
-        .create(blogObject)
-        .then(responseData => {
-          setBlogs(blogs.concat(responseData))
-          setErrorMessage(`a new blog ${blogObject.title} by ${blogObject.author} added`)
-          setMessageStyle('message')
-          setTimeout(() => {
-            setErrorMessage(null)
-          }, 5000)
-        })
+      const newBlog = await blogService.create(blogObject)
+      setBlogs(blogs.concat(newBlog))
+      setErrorMessage(`a new blog ${blogObject.title} by ${blogObject.author} added`)
+      setMessageStyle('message')
+      setTimeout(() => {
+        setErrorMessage(null)
+      }, 5000)
     } catch (exception) {
       setErrorMessage('Wrong format')
+      setMessageStyle('error')
+      setTimeout(() => {
+        setErrorMessage(null)
+      }, 5000)
+    }
+  }
+
+  const updateBlog = async (blogObject) => {
+    try {
+      await blogService.update(blogObject)
+    } catch (exception) {
+      setErrorMessage('Update failed')
+      setMessageStyle('error')
+      setTimeout(() => {
+        setErrorMessage(null)
+      }, 5000)
+    }
+  }
+
+  const deleteBlog = async (blogObject) => {
+    try {
+      await blogService.deleteObj(blogObject)
+      setBlogs(blogs.filter(blog => blog.id !== blogObject.id))
+      setErrorMessage(`${blogObject.title} by ${blogObject.author} deleted`)
+      setMessageStyle('message')
+      setTimeout(() => {
+        setErrorMessage(null)
+      }, 5000)
+
+    } catch (exception) {
+      setErrorMessage('deletion failed')
       setMessageStyle('error')
       setTimeout(() => {
         setErrorMessage(null)
@@ -139,9 +167,18 @@ const App = () => {
       </div>}
       <br />
       <h2>blog list</h2>
-      {blogs.map(blog =>
-        <Blog key={blog.id} blog={blog} />
-      )}
+      {blogs
+        .slice()
+        .sort((a, b) => b.likes - a.likes)
+        .map(blog =>
+          <Blog
+            key={blog.id}
+            blog={blog}
+            updateBlog={updateBlog}
+            deleteBlog={deleteBlog}
+            currentUserId={user ? user.username : ""}
+          />
+        )}
     </div>
   )
 }
