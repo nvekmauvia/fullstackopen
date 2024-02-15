@@ -1,6 +1,7 @@
 import { useState } from 'react'
+import PropTypes from 'prop-types'
 
-const Blog = ({ blog, updateBlog, deleteBlog, currentUserId: currentUsername }) => {
+const Blog = ({ blog, updateBlog, deleteBlog, currentUsername }) => {
   const [workingBlog, setWorkingBlog] = useState(blog)
   const [visibility, setVisibility] = useState(false)
 
@@ -27,9 +28,6 @@ const Blog = ({ blog, updateBlog, deleteBlog, currentUserId: currentUsername }) 
     }
   }
 
-  console.log(workingBlog.user)
-  console.log(currentUsername)
-
   return (
     <div style={blogStyle}>
       < div  >
@@ -47,13 +45,20 @@ const Blog = ({ blog, updateBlog, deleteBlog, currentUserId: currentUsername }) 
         }
         <button onClick={increaseLike}>like</button>
         <br />
-        {workingBlog.user && workingBlog.user.username == currentUsername &&
+        {workingBlog.user && workingBlog.user.username === currentUsername &&
           <button onClick={deleteSelf}>delete</button>
         }
       </div>
       }
     </div>
   )
+}
+
+Blog.prototype = {
+  blog:PropTypes.func.isRequired,
+  updateBlog:PropTypes.func.isRequired,
+  deleteBlog:PropTypes.func.isRequired,
+  currentUsername:PropTypes.func.isRequired
 }
 
 export default Blog

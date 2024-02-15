@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import Note from "./components/Note"
+import Note from './components/Note'
 import LoginForm from './components/LoginForm'
 import Togglable from './components/Togglable'
 import NoteForm from './components/NoteForm'
@@ -31,7 +31,6 @@ const Footer = () => {
     </div>
   )
 }
-
 
 const App = () => {
   const [notes, setNotes] = useState(null)
