@@ -135,6 +135,7 @@ const App = () => {
           value={username}
           name="Username"
           onChange={({ target }) => setUsername(target.value)}
+          data-cy="usernameInput"
         />
       </div>
       <div>
@@ -144,9 +145,13 @@ const App = () => {
           value={password}
           name="Password"
           onChange={({ target }) => setPassword(target.value)}
+          data-cy="passwordInput"
         />
       </div>
-      <button type="submit">login</button>
+      <button
+        type="submit"
+        data-cy="loginButton"
+      >login</button>
     </form>
   )
 
@@ -170,14 +175,15 @@ const App = () => {
       {blogs
         .slice()
         .sort((a, b) => b.likes - a.likes)
-        .map(blog =>
-          <Blog
-            key={blog.id}
-            blog={blog}
-            updateBlog={updateBlog}
-            deleteBlog={deleteBlog}
-            currentUsername={user ? user.username : ''}
-          />
+        .map((blog, index) =>
+          <div key={blog.id} data-cy={`blog-${index}`}>
+            <Blog
+              blog={blog}
+              updateBlog={updateBlog}
+              deleteBlog={deleteBlog}
+              currentUsername={user ? user.username : ''}
+            />
+          </div>
         )}
     </div>
   )
