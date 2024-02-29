@@ -2,22 +2,6 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 let timeoutId = null
 
-export const postNotificationAndClear = createAsyncThunk(
-    'notification/postAndClear',
-    async (content, { dispatch }) => {
-        if (timeoutId !== null) {
-            clearTimeout(timeoutId)
-            timeoutId = null
-        }
-
-        dispatch(editNotification(content))
-
-        timeoutId = setTimeout(() => {
-            dispatch(clearNotification())
-            timeoutId = null
-        }, 5000)
-    }
-)
 
 const notificationSlice = createSlice({
     name: 'notification',
@@ -33,6 +17,23 @@ const notificationSlice = createSlice({
     },
 })
 
-export const { editNotification, clearNotification } = notificationSlice.actions;
+export const { editNotification, clearNotification } = notificationSlice.actions
+
+export const setNotification = createAsyncThunk(
+    'notification/postAndClear',
+    async (content, { dispatch }) => {
+        if (timeoutId !== null) {
+            clearTimeout(timeoutId)
+            timeoutId = null
+        }
+
+        dispatch(editNotification(content))
+
+        timeoutId = setTimeout(() => {
+            dispatch(clearNotification())
+            timeoutId = null
+        }, 5000)
+    }
+)
 
 export default notificationSlice.reducer;

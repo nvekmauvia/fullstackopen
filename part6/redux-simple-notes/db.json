@@ -1,0 +1,49 @@
+{
+  "notes": [
+    {
+      "content": "the app state is in redux store",
+      "important": true,
+      "id": "1"
+    },
+    {
+      "content": "state changes are made with actions",
+      "important": false,
+      "id": "2"
+    },
+    {
+      "id": "efc1",
+      "content": "samantha",
+      "important": false
+    },
+    {
+      "id": "21b9",
+      "content": "combineReducers forms one reducer from many simple reducers",
+      "important": false
+    },
+    {
+      "id": "8d10",
+      "content": "combineReducers forms one reducer from many simple reducers",
+      "important": false
+    },
+    {
+      "id": "a475",
+      "content": "combineReducers forms one reducer from many simple reducers",
+      "important": false
+    },
+    {
+      "id": "2829",
+      "content": "awawda",
+      "important": false
+    },
+    {
+      "id": "9ca5",
+      "content": "combineReducers forms one reducer from many simple reducers",
+      "important": false
+    },
+    {
+      "id": "5e29",
+      "content": "combineReducers forms one reducer from many simple reducers",
+      "important": false
+    }
+  ]
+}
