@@ -33,7 +33,7 @@
     {
       "id": "2829",
       "content": "awawda",
-      "important": false
+      "important": true
     },
     {
       "id": "9ca5",
@@ -43,6 +43,16 @@
     {
       "id": "5e29",
       "content": "combineReducers forms one reducer from many simple reducers",
+      "important": true
+    },
+    {
+      "id": "926e",
+      "content": "3333",
+      "important": true
+    },
+    {
+      "id": "9898",
+      "content": "1",
       "important": false
     }
   ]
