@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom/client'
 import { useState } from 'react'
-import { Alert } from 'react-bootstrap'
+import { Container, Alert } from '@mui/material'
 import {
   BrowserRouter as Router,
   Routes,
@@ -59,13 +59,15 @@ const App = () => {
   }
 
   return (
-    <div className="container">
-      {(message &&
-        <Alert variant="success">
-          {message}
-        </Alert>
-      )}
-      <Menu padding={padding} user = {user}/>
+    <Container>
+      <div>
+        {(message &&
+          <Alert severity="success">
+            {message}
+          </Alert>
+        )}
+      </div>
+      <Menu padding={padding} user={user} />
       <Routes>
         <Route path="/notes/:id" element={<Note note={note} />} />
         <Route path="/notes" element={<Notes notes={notes} />} />
@@ -77,7 +79,7 @@ const App = () => {
         <br />
         <em>Note app, Department of Computer Science 2023</em>
       </footer>
-    </div>
+    </Container>
   )
 }
 
